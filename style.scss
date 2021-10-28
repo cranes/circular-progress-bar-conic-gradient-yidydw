@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black');
+@function rem($value) {
+  @return unquote(($value/1px)/16+"rem");
+}
+
+/***********************/
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+body{
+  padding-top: 60px;
+.subscribe{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  z-index: 5000;
+  border-radius: 4px;
+  border:1px solid #ffffff;
+  a{
+     display: inline-block;
+     border-radius: inherit;
+      padding: 10px 20px;
+      background-color: #ff0000;
+      color:#ffffff;
+      text-decoration: none;
+      font-family: 'Courgette', cursive;
+      &:hover{
+        background-color: darken(#ff0000,10%);
+      }
+    span{
+     margin-left: 2px;
+    }
+  }
+  }
+}
+/********************/
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+$fontFamily: 'Work Sans', sans-serif;
+@function rem($value) {
+  @return unquote(($value/1px)/16+"rem");
+}
+*{
+  box-sizing:border-box;
+}
+$circleColor:#303da1;
+
+:root{
+  --outerCircleColor:#303da1;
+  --innerCircleColor:#3e4ec6;
+  --progressBarColor:#ffffff;
+  --textColor:#ffffff;
+}
+body{
+  background-color: #CFFCFF;
+}
+.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+*{
+  font-family:$fontFamily;
+}
+.wrapper{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  font-size:rem(20px);
+  font-family:$fontFamily;
+  flex-wrap:wrap;
+}
+
+
+.circularProgress{
+  height:rem(150px);
+  width:rem(150px);
+  border:rem(2px) solid var(--outerCircleColor);
+  display: flex;
+  position:relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin:auto;
+  background-color: var(--outerCircleColor);
+  border-radius:rem(500px);
+  justify-content: center;
+  align-items: center;
+  font-size:rem(26px);
+  font-family:$fontFamily;
+  flex-shrink:0;
+  margin:10px 4px;
+  &::after{
+    content:attr(data-progress);
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+    height:85%;  
+    width:85%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:var(--textColor);
+    background-color: var(--innerCircleColor);
+    border-radius:inherit;
+    z-index:2;
+    border:rem(2px) solid var(--outerCircleColor);
+  }
+  &.small{
+    height:rem(100px);
+    width:rem(100px);
+    font-size:rem(16px);
+  }
+  &.big{
+    height:rem(200px);
+    width:rem(200px);
+    font-size:rem(32px);
+  }
+}
